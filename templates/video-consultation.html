@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Consultation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Live Video Consultation</h1>
+    </header>
+
+    <div class="container">
+        <div class="video-container">
+            <video id="localVideo" autoplay muted></video>
+            <video id="remoteVideo" autoplay></video>
+        </div>
+
+        <div class="controls">
+            <button id="startCall" onclick="startCall()">Start Call</button>
+            <button id="endCall" onclick="endCall()" class="end">End Call</button>
+        </div>
+
+        <p id="status">Waiting to start the call...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

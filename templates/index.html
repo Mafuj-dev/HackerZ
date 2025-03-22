@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Telemedicine</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .card {
+            margin: 20px 0;
+            padding: 15px;
+            background: #e3f2fd;
+            border-radius: 8px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .feature-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<script src="script.js"></script>
+
+<body>
+    <div class="container">
+        <h1>AI-Powered Telemedicine</h1>
+        
+        <div class="card">
+            <h2>Symptom Checker</h2>
+            <input type="text" id="symptomInput" placeholder="Describe your symptoms...">
+            <button onclick="analyzeSymptoms()">Analyze Symptoms</button>
+        </div>
+        
+        <div class="features">
+            
+            <div class="card">
+                <h2>Chat with AI</h2>
+                <div class="chat-container">
+                    <div id="chat-box"></div>
+                    <input type="text" id="user-input" placeholder="Ask me anything about your symptoms..." />
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Book Appointment</h3>
+                <p>Schedule consultations easily</p>
+            </div>
+            <div class="feature-card">
+                <h3>Video Consultation</h3>
+                <p>Connect with doctors instantly</p>
+                <a href="video-consultation.html"><button>Start Video Call</button></a>
+            </div>
+            
+            <div class="feature-card">
+                <h3>Secure & Compliant</h3>
+                <p>HIPAA & GDPR-compliant platform</p>
+            </div>
+            
+            
+        </div>
+    </div>
+    
+    <script>
+        function analyzeSymptoms() {
+            const symptomInput = document.getElementById("symptomInput").value;
+            if (symptomInput) {
+                alert("Analyzing symptoms: " + symptomInput);
+            } else {
+                alert("Please enter your symptoms.");
+            }
+        }
+    </script>
+</body>
+</html>
