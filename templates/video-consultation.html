@@ -3,28 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Consultation</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Schedule Video Consultation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <header>
-        <h1>Live Video Consultation</h1>
+        <h1>Schedule Your Video Consultation</h1>
     </header>
 
     <div class="container">
-        <div class="video-container">
+        <form id="schedule-form">
+            <label for="date">Select Date:</label>
+            <input type="date" id="date" required>
+
+            <label for="time">Select Time:</label>
+            <input type="time" id="time" required>
+
+            <label for="doctor">Select Consultant:</label>
+            <select id="doctor">
+                <option value="Dr. John Doe">Dr. John Doe</option>
+                <option value="Dr. Sarah Smith">Dr. Sarah Smith</option>
+                <option value="Dr. Emma Brown">Dr. Emma Brown</option>
+            </select>
+
+            <button type="submit">Confirm Appointment</button>
+        </form>
+
+        <div id="confirmation-message" class="hidden">
+            <h2>Appointment Confirmed!</h2>
+            <p><strong>Date:</strong> <span id="confirmed-date"></span></p>
+            <p><strong>Time:</strong> <span id="confirmed-time"></span></p>
+            <p><strong>Doctor:</strong> <span id="confirmed-doctor"></span></p>
+            <button id="startCall" onclick="startCall()">Start Video Call</button>
+            <button id="endCall" onclick="endCall()" class="end">End Call</button>
+        </div>
+        
+        <div class="video-container hidden">
             <video id="localVideo" autoplay muted></video>
             <video id="remoteVideo" autoplay></video>
-        </div>
-
-        <div class="controls">
-            <button id="startCall" onclick="startCall()">Start Call</button>
-            <button id="endCall" onclick="endCall()" class="end">End Call</button>
         </div>
 
         <p id="status">Waiting to start the call...</p>
     </div>
 
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
